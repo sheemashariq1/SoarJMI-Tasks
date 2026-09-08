@@ -13,7 +13,7 @@ A backend algorithmic utility written in Python that manages event seat allocati
 ## How to Run
 
 ```bash
-# Default (cap=5, input=students.csv, output=manifest.csv)
+# Default (cap=5, input=input.csv, output=output.csv)
 python main.py
 
 # Custom seat cap
