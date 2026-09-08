@@ -71,10 +71,10 @@ Priya Singh,priya@jmi.ac.in,2024-01-15 10:00:00,Waitlist
   Waitlisted        : 5
 ========================================
 
-  First seat     → Rahul Sharma (2024-01-15 09:12:34)
-  First waitlist → Meera Nair  (2024-01-15 11:00:52)
+  First seat → Sheema Shariq (2026-08-18 09:12:00)
+  First waitlist → Meera Sartaj (2026-08-18 11:00:00)
 
-  Manifest saved → manifest.csv
+  Manifest saved → output.csv
 ```
 
 ---
