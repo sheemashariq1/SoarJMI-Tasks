@@ -3,11 +3,6 @@ import heapq, csv, argparse, os
 DEFAULT_SEAT_CAP = 5
 
 def allocate(students_data, seat_cap):
-    """
-    Core allocation logic using a min-heap.
-    Input:  list of (timestamp, name, email) tuples
-    Output: (confirmed_list, waitlist_list) — both sorted by timestamp
-    """
     heap = []
     for ts, name, email in students_data:
         heapq.heappush(heap, (ts, name, email))
@@ -32,7 +27,6 @@ def load_csv(filepath):
     return students
 
 def export_manifest(filename, confirmed, waitlist):
-    """Export a single unified attendee manifest CSV."""
     with open(filename, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["name", "email", "timestamp", "status"])

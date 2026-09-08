@@ -13,8 +13,8 @@ def run_test(name, students_data, seat_cap, expect_confirmed, expect_waitlist):
     else:  failed += 1
     print(f"{status} | {name}")
     if not ok:
-        print(f"       Expected confirmed={expect_confirmed}, waitlist={expect_waitlist}")
-        print(f"       Got     confirmed={len(confirmed)}, waitlist={len(waitlist)}")
+        print(f"Expected confirmed={expect_confirmed}, waitlist={expect_waitlist}")
+        print(f"Got     confirmed={len(confirmed)}, waitlist={len(waitlist)}")
 
 def make_students(n, start_hour=9):
     return [
@@ -32,19 +32,17 @@ def make_shuffled_students():
         ("2024-01-15 12:00:00", "Last Lisa",   "lisa@jmi.ac.in"),
     ]
 
-# TC1 — Capacity Underflow
 run_test("TC1 - Capacity Underflow (30 students, cap=50)",
          make_students(30), 50, 30, 0)
 
-# TC2 — Capacity Overflow
+
 run_test("TC2 - Capacity Overflow (70 students, cap=50)",
          make_students(70), 50, 50, 20)
 
-# TC3 — Exact Match
+
 run_test("TC3 - Exact Match (50 students, cap=50)",
          make_students(50), 50, 50, 0)
 
-# TC4 — Timestamp Priority
 shuffled = make_shuffled_students()
 confirmed, waitlist = allocate(shuffled, seat_cap=3)
 expected_first = "First Faiz"
@@ -57,7 +55,6 @@ print(f"{status} | TC4 - Timestamp Priority (FCFS heap order)")
 if not ok:
     print(f"       Expected first confirmed: {expected_first}, got: {actual_first}")
 
-# TC5 — Unified manifest CSV validation
 confirmed_data, waitlist_data = allocate(make_students(8), seat_cap=5)
 export_manifest("test_manifest.csv", confirmed_data, waitlist_data)
 
@@ -79,7 +76,6 @@ if csv_ok: passed += 1
 else:       failed += 1
 print(f"{status} | TC5 - Unified Manifest CSV (columns, row count, status values)")
 
-# TC6 — CLI default cap
 import subprocess, sys
 result = subprocess.run(
     [sys.executable, "main.py", "--cap", "3", "--input", "students.csv", "--output", "test_out.csv"],
