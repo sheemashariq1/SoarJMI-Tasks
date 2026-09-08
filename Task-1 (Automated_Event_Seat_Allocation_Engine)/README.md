@@ -20,7 +20,7 @@ python main.py
 python main.py --cap 50
 
 # Custom input/output files
-python main.py --cap 50 --input registrations.csv --output attendees.csv
+python main.py --cap 50 --input input.csv --output output.csv
 ```
 
 ---
@@ -30,12 +30,12 @@ python main.py --cap 50 --input registrations.csv --output attendees.csv
 | Argument | Default | Description |
 |----------|---------|-------------|
 | `--cap` | `5` | Seat capacity for the event |
-| `--input` | `students.csv` | Input CSV file with registrations |
-| `--output` | `manifest.csv` | Output attendee manifest CSV |
+| `--input` | `input.csv` | Input CSV file with registrations |
+| `--output` | `output.csv` | Output attendee manifest CSV |
 
 ---
 
-## Input Format — `students.csv`
+## Input Format — `input.csv`
 
 Timestamps are manually entered to simulate real registration form data.
 
@@ -47,7 +47,7 @@ Priya Singh,priya@jmi.ac.in,2024-01-15 10:00:00
 
 ---
 
-## Output — `manifest.csv`
+## Output — `output.csv`
 
 A single unified attendee manifest with all registrants and their allocation status.
 
@@ -109,7 +109,7 @@ ts, name, email = heapq.heappop(heap)  # always pops the earliest
 ## Running Tests
 
 ```bash
-python test_allocation.py
+python Test_Allocation.py
 ```
 
 Covers 6 test cases: capacity underflow, overflow, exact match, timestamp priority, CSV export validation, and CLI flag verification.

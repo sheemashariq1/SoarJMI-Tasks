@@ -78,7 +78,7 @@ print(f"{status} | TC5 - Unified Manifest CSV (columns, row count, status values
 
 import subprocess, sys
 result = subprocess.run(
-    [sys.executable, "main.py", "--cap", "3", "--input", "students.csv", "--output", "test_out.csv"],
+    [sys.executable, "main.py", "--cap", "3", "--input", "input.csv", "--output", "test_out.csv"],
     capture_output=True, text=True
 )
 cli_ok = result.returncode == 0 and os.path.exists("test_out.csv")

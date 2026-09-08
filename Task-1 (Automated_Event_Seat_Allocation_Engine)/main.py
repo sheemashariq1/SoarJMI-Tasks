@@ -57,10 +57,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Event Seat Allocation Engine")
     parser.add_argument("--cap",    type=int, default=DEFAULT_SEAT_CAP,
                         help=f"Seat capacity (default: {DEFAULT_SEAT_CAP})")
-    parser.add_argument("--input",  type=str, default="students.csv",
-                        help="Input CSV file (default: students.csv)")
-    parser.add_argument("--output", type=str, default="manifest.csv",
-                        help="Output manifest CSV (default: manifest.csv)")
+    parser.add_argument("--input",  type=str, default="input.csv",
+                        help="Input CSV file (default: input.csv)")
+    parser.add_argument("--output", type=str, default="output.csv",
+                        help="Output manifest CSV (default: output.csv)")
     args = parser.parse_args()
 
     students = load_csv(args.input)
