@@ -31,7 +31,7 @@ python main.py --cap 50 --input input.csv --output output.csv
 |----------|---------|-------------|
 | `--cap` | `5` | Seat capacity for the event |
 | `--input` | `input.csv` | Input CSV file with registrations |
-| `--output` | `output.csv` | Output attendee output CSV |
+| `--output` | `output.csv` | Output attendee manifest CSV |
 
 ---
 
@@ -49,7 +49,7 @@ Priya Singh,priya@jmi.ac.in,2024-01-15 10:00:00
 
 ## Output — `output.csv`
 
-A single unified attendee output with all registrants and their allocation status.
+A single unified attendee manifest with all registrants and their allocation status. 
 
 ```
 name,email,timestamp,status
@@ -122,7 +122,7 @@ Covers 6 test cases: capacity underflow, overflow, exact match, timestamp priori
 Task ID & Title:        Task 2.3 - Automated Event Seat Allocation Engine
 Implementation Summary: Built a Python min-heap utility that reads student
                         registrations from CSV, allocates seats by timestamp
-                        (FCFS), and exports a unified output CSV with status
+                        (FCFS), and exports a unified manifest CSV with status
                         column. Supports configurable seat cap and I/O files
                         via CLI arguments. Time complexity: O(n log n).
 ```

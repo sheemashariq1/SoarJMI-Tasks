@@ -1,7 +1,7 @@
 # Importing necessary libraries for CSV handling, file operations, and heap operations
 import csv, os, heapq
 
-# From main.py, importing the allocate and export_manifest functions to use them in our test cases
+# From main.py, importing the allocate and export_output functions
 from main import allocate, export_output
 
 # passed and failed counters to keep track of test results
@@ -117,3 +117,6 @@ status = "✅ PASS" if check else "❌ FAIL"
 if check: passed += 1
 else: failed += 1
 print(f"{status} | TC6 - CLI --cap flag (exactly 3 confirmed, rest waitlist)")
+
+print(f"\n{'─'*45}")    # Separator for clarity in output
+print(f"Results: {passed} passed, {failed} failed out of {passed+failed} tests")  # Summary of test results
