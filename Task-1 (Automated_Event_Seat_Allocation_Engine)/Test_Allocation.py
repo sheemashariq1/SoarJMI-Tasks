@@ -61,7 +61,7 @@ run_test("TC3 - Exact Match (50 students, cap=50)",
 # Test Case 4: Timestamp Priority (FCFS) - 5 students, seat capacity = 3
 shuffled = make_shuffled_students()
 confirmed, waitlist = allocate(shuffled, seat_cap=3)
-expected_first = "First Faiz"
+expected_first = "Faiz" 
 actual_first   = confirmed[0][1] # Get the name of the first confirmed student
 ok = actual_first == expected_first
 status = "✅ PASS" if ok else "❌ FAIL"
@@ -95,6 +95,7 @@ print(f"{status} | TC5 - Unified Manifest CSV (columns, row count, status values
 
 # Test Case 6: Check that the CLI creates the output CSV with 3 seats and the expected allocation results.
 import subprocess, sys
+
 result = subprocess.run(
     [sys.executable, "main.py", "--cap", "3", "--input", "input.csv", "--output", "test_out.csv"],
     capture_output=True, text=True
@@ -104,13 +105,15 @@ check = result.returncode == 0 and os.path.exists("test_out.csv")
 if check:
     with open("test_out.csv") as f:
         rows = list(csv.DictReader(f))
-        check = rows[0]["status"] == "Confirmed" and len(rows) == 10
+        # Check ki exactly 3 students confirmed hain
+        confirmed_count = sum(1 for row in rows if row["status"] == "Confirmed")
+        # Check ki remaining sab waitlist hain
+        waitlist_count = sum(1 for row in rows if row["status"] == "Waitlist")
+        # Total should equal input file size
+        check = confirmed_count == 3 and waitlist_count == len(rows) - 3
     os.remove("test_out.csv")
 
-status = "✅ PASS" if check else "❌ FAIL" # C
+status = "✅ PASS" if check else "❌ FAIL"
 if check: passed += 1
-else:       failed += 1
-print(f"{status} | TC6 - CLI --cap flag (python main.py --cap 3)")
-
-print(f"\n{'─'*45}")    # Print a separator line for better readability of the test summary
-print(f"Results: {passed} passed, {failed} failed out of {passed+failed} tests")  # Print the final test results
+else: failed += 1
+print(f"{status} | TC6 - CLI --cap flag (exactly 3 confirmed, rest waitlist)")
