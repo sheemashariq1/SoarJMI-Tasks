@@ -99,7 +99,7 @@ import subprocess, sys
 result = subprocess.run(
     [sys.executable, "main.py", "--cap", "3", "--input", "input.csv", "--output", "test_out.csv"],
     capture_output=True, text=True
-)
+)  # Run main.py with the specified arguments and capture its output and return code
 
 check = result.returncode == 0 and os.path.exists("test_out.csv") # Check that the command executed successfully and the output file exists
 if check:
