@@ -41,8 +41,8 @@ Timestamps are manually entered to simulate real registration form data.
 
 ```
 name,email,timestamp
-Rahul Sharma,rahul@jmi.ac.in,2024-01-15 09:12:34
-Priya Singh,priya@jmi.ac.in,2024-01-15 10:00:00
+Sheema Shariq,sheema25@jmi.ac.in,2026-08-18 09:12:00
+Priya Singh,priya@jmi.ac.in,2026-08-18 09:45:00
 ```
 
 ---
@@ -53,8 +53,8 @@ A single unified attendee manifest with all registrants and their allocation sta
 
 ```
 name,email,timestamp,status
-Rahul Sharma,rahul@jmi.ac.in,2024-01-15 09:12:34,Confirmed
-Priya Singh,priya@jmi.ac.in,2024-01-15 10:00:00,Waitlist
+Sheema Shariq,sheema25@jmi.ac.in,2026-08-18 09:12:00,Confirmed
+Priya Singh,priya@jmi.ac.in,2026-08-18 09:45:00,Confirmed
 ```
 
 ---
