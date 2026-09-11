@@ -101,13 +101,13 @@ result = subprocess.run(
     capture_output=True, text=True
 )
 
-check = result.returncode == 0 and os.path.exists("test_out.csv")
+check = result.returncode == 0 and os.path.exists("test_out.csv") # Check that the command executed successfully and the output file exists
 if check:
     with open("test_out.csv") as f:
         rows = list(csv.DictReader(f))
-        # Check ki exactly 3 students confirmed hain
+        # Check that exactly 3 students are confirmed 
         confirmed_count = sum(1 for row in rows if row["status"] == "Confirmed")
-        # Check ki remaining sab waitlist hain
+        # Check that the remaining are on the waitlist
         waitlist_count = sum(1 for row in rows if row["status"] == "Waitlist")
         # Total should equal input file size
         check = confirmed_count == 3 and waitlist_count == len(rows) - 3
